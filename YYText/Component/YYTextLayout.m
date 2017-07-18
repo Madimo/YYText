@@ -529,16 +529,16 @@ dispatch_semaphore_signal(_lock);
         YYTextLine *line = [YYTextLine lineWithCTLine:ctLine position:position vertical:isVerticalForm];
         CGRect rect = line.bounds;
         
-        if (constraintSizeIsExtended) {
-            if (isVerticalForm) {
-                if (!CGRectIntersectsRect(rect,constraintRectBeforeExtended))
-                    break;
-            } else {
-                if (rect.origin.y + rect.size.height >
-                    constraintRectBeforeExtended.origin.y +
-                    constraintRectBeforeExtended.size.height) break;
-            }
-        }
+//        if (constraintSizeIsExtended) {
+//            if (isVerticalForm) {
+//                if (!CGRectIntersectsRect(rect,constraintRectBeforeExtended))
+//                    break;
+//            } else {
+//                if (rect.origin.y + rect.size.height >
+//                    constraintRectBeforeExtended.origin.y +
+//                    constraintRectBeforeExtended.size.height) break;
+//            }
+//        }
         
         BOOL newRow = YES;
         if (rowMaySeparated && position.x != lastPosition.x) {
