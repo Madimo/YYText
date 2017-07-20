@@ -270,6 +270,8 @@ typedef NS_ENUM(NSUInteger, YYTextMoveDirection) {
     _containerView.frame = (CGRect){.size = size};
     _state.showingHighlight = NO;
     self.contentSize = size;
+
+    [_outerDelegate textViewDidFinishLayout:self];
 }
 
 /// Update selection view immediately.
