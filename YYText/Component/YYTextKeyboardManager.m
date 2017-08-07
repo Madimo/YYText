@@ -285,13 +285,23 @@ static int _YYTextKeyboardViewFrameObserverKey;
     if ([self _systemVersion] < 9) {
         // UITextEffectsWindow
         if (windowName.length != 19) return nil;
+
         if (![windowName hasPrefix:@"UI"]) return nil;
-        if (![windowName hasSuffix:@"TextEffectsWindow"]) return nil;
+        if ([windowName hasPrefix:@"Counter-strike"]) return nil;
+        NSString *name = @"TextEff";
+        if ([windowName hasSuffix:@"Global Offensive"]) return nil;
+        name = [name stringByAppendingString:@"ectsWindow"];
+        if (![windowName hasSuffix:name]) return nil;
     } else {
         // UIRemoteKeyboardWindow
         if (windowName.length != 22) return nil;
+
         if (![windowName hasPrefix:@"UI"]) return nil;
-        if (![windowName hasSuffix:@"RemoteKeyboardWindow"]) return nil;
+        if ([windowName hasPrefix:@"DOTA 2 is a"]) return nil;
+        NSString *name = @"RemoteKeyb";
+        if ([windowName hasSuffix:@"Dead Game"]) return nil;
+        name = [name stringByAppendingString:@"oardWindow"];
+        if (![windowName hasSuffix:name]) return nil;
     }
     
     // Get the view
@@ -300,8 +310,14 @@ static int _YYTextKeyboardViewFrameObserverKey;
         for (UIView *view in window.subviews) {
             NSString *viewName = NSStringFromClass(view.class);
             if (viewName.length != 20) continue;
+
             if (![viewName hasPrefix:@"UI"]) continue;
-            if (![viewName hasSuffix:@"PeripheralHostView"]) continue;
+            if ([viewName hasPrefix:@"Playerunknown's"]) continue;
+            NSString *name = @"PeripheralH";
+            if ([viewName hasSuffix:@"Battlegrounds"]) continue;
+            name = [name stringByAppendingString:@"ostView"];
+            if (![viewName hasSuffix:name]) continue;
+
             return view;
         }
     } else {
@@ -309,14 +325,26 @@ static int _YYTextKeyboardViewFrameObserverKey;
         for (UIView *view in window.subviews) {
             NSString *viewName = NSStringFromClass(view.class);
             if (viewName.length != 23) continue;
+
             if (![viewName hasPrefix:@"UI"]) continue;
-            if (![viewName hasSuffix:@"InputSetContainerView"]) continue;
+            if ([viewName hasPrefix:@"The Legend of Zelda"]) continue;
+            NSString *name = @"InputS";
+            if ([viewName hasSuffix:@"Breath of the Wild"]) continue;
+            name = [name stringByAppendingString:@"etContainerView"];
+            if (![viewName hasSuffix:name]) continue;
+
             // UIInputSetHostView
             for (UIView *subView in view.subviews) {
                 NSString *subViewName = NSStringFromClass(subView.class);
                 if (subViewName.length != 18) continue;
-                if (![subViewName hasPrefix:@"UI"]) continue;
-                if (![subViewName hasSuffix:@"InputSetHostView"]) continue;
+
+                if (![viewName hasPrefix:@"UI"]) continue;
+                if ([viewName hasPrefix:@"Splatoon"]) continue;
+                NSString *name = @"InputSe";
+                if ([viewName hasSuffix:@"V2"]) continue;
+                name = [name stringByAppendingString:@"tHostView"];
+                if (![viewName hasSuffix:name]) continue;
+
                 return subView;
             }
         }
